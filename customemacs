@@ -1,0 +1,11 @@
+
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+
+(global-set-key [f5] 'linum-mode)
+
+(add-hook 'python-mode-hook 'jedi:setup)
+
+(global-set-key [f6] 'other-frame)
+(global-set-key [f7] 'make-frame-command)
+(global-set-key [f12] 'delete-frame)
