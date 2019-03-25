@@ -9,3 +9,21 @@
 (global-set-key [f6] 'other-frame)
 (global-set-key [f7] 'make-frame-command)
 (global-set-key [f12] 'delete-frame)
+
+
+(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
+(add-hook 'racer-mode-hook #'company-mode)
+
+(require 'rust-mode)
+(define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
+(setq company-tooltip-align-annotations t)
+
+
+
+
+(require 'multi-term)
+
+(setq multi-term-program "/bin/bash")
+
+(show-paren-mode 1)
