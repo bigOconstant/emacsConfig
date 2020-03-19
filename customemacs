@@ -1,29 +1,28 @@
-
-(require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
+(add-hook 'after-init-hook 'global-company-mode)
 
 (global-set-key [f5] 'linum-mode)
 
-(add-hook 'python-mode-hook 'jedi:setup)
+
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
 
 (global-set-key [f6] 'other-frame)
 (global-set-key [f7] 'make-frame-command)
 (global-set-key [f12] 'delete-frame)
 
-
-(add-hook 'rust-mode-hook #'racer-mode)
-(add-hook 'racer-mode-hook #'eldoc-mode)
-(add-hook 'racer-mode-hook #'company-mode)
-
-(require 'rust-mode)
-(define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
-(setq company-tooltip-align-annotations t)
-
-
-
-
-(require 'multi-term)
-
-(setq multi-term-program "/bin/bash")
-
 (show-paren-mode 1)
+
+
+
+
+; clang-format can be triggered using C-c C-f
+;; Create clang-format file using google style
+;; clang-format -style=google -dump-config > .clang-format
+(require 'clang-format)
+(global-set-key (kbd "C-c C-f") 'clang-format-region)
+
+
+(require 'modern-cpp-font-lock)
+(modern-c++-font-lock-global-mode t)
+
+(add-hook 'after-init-hook 'global-company-mode
